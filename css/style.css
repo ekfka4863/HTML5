@@ -1,53 +1,54 @@
 body{
     margin: 0;
-  }
-  body *, body *::before, body *::after{
-    box-sizing: border-box;
-  }
-  .header, .visual, .main, .slogan, .footer-content{
-    width: 940px;
-    margin: 0 auto;
-  }
-  .header{
-    background-color: yellow;
-    height: 10vh;
-  }
-  .visual{
-    background-color: salmon;
-    height: 10vh;
-  }
-  .main{
-    background-color: blue;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 30px;
-  }
-  
-  .group{
-    height: 60vh;
-  }
-  .group1{
-    background-color: violet;
-    width: 250px;
-  }
-  .group2{
-    background-color: aqua;
-    width: 380px;
-  }
-  .group3{
-    background-color: sandybrown;
-    width: 190px;
-  }
-  .slogan{
-    background-color: lightgreen;
-    height: 10vh;
-  }
-  
-  .footer{
-    background-color: silver;
-  }
-  .footer-content{
-    background-color: pink;
-    height: 10vh;
-  }
+}
+body *, body *::before, body *::after{
+box-sizing: border-box;
+}
+.header, .visual, .main, .slogan, .footer-content{
+width: 940px;
+margin: 0 auto;
+}
+.header{
+background-color: yellow;
+height: 10vh;
+}
+.visual{
+background-color: salmon;
+height: 10vh;
+}
+.main{
+background-color: blue;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 30px;
+min-height: 450px;
+}
+.group{
+height: 60vh;
+}
+.group1{
+background-color: violet;
+width: 250px;
+}
+.group2{
+background-color: aqua;
+width: 380px;
+}
+.group3{
+background-color: sandybrown;
+width: 190px;
+}
+.slogan{
+background-color: lightgreen;
+height: 10vh;
+}
+
+.footer{
+background-color: silver;
+}
+.footer-content{
+background-color: pink;
+height: 10vh;
+}
