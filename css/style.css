@@ -1,19 +1,31 @@
+html{
+    font-size: 10px;
+}
 body{
-    background-color: #ccc;
     margin: 0;
+    background-color: #ccc;
+    font-size: 1.2rem;
 }
 body *, body *::before, body *::after{
-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* 링크 스타일 */
+a{
+    text-decoration: none;
+    /* 기본적으로 a 태그는 #00f처리 되어있기 때문에 기본칼라인 블랙으로 그냥 상속받게끔 한 것! */
+    color: inherit;
 }
 .header, .visual, .main, .slogan, .footer-content{
-width: 940px;
-margin: 0 auto;
+    width: 940px;
+    margin: 0 auto;
 }
 /* 헤더 */
 .header{
-background-color: #fff;
-border-top: 1px solid transparent;
-position: relative;
+    background-color: #fff;
+    /* border-top: 1px solid transparent; */
+    position: relative;
+    padding: 0 30px;
 }
 /* 로고 */
 .logo{
@@ -25,26 +37,50 @@ position: relative;
     /* font-size: 100%;  위에꺼랑 같은 말! */
     line-height: 1;
 }
-/* 로고 안에 있는 요소들이 갖는 패딩들을 없애는 과정 */
-/* .logo a, .logo img{
-    display: block;
-} */
 /* 안내 링크 */
 .member{
     margin: 0;
+    list-style: none;
+    background-color: yellow;
+    /* 기본 패딩 없애기... */
+    padding-left: 0; 
+    /* 인라인 블록으로 만든 멤버 클래스의 li를 right 정렬해주고 싶으면 그의 부모 요소에 text-align을 바꿔주는 것~! */
+    text-align: right;
+    /* li들 태그 사이에 공백문자로   */
+    font-size: 0;
+    position: relative;
+    right: -10px;
 }
+.member li{
+    display: inline-block;
+    /* 루트인 html을 수정하면 같이 바뀔 수 있게 rem을 사용! px은 지양! */
+    font-size: 1.2rem;
+}
+.member a{
+    /* 원래 a는 inline 속성. 그래서 패딩을 위아래 줘도 메인이 같이 늘어나지 않는다. 그래서 블록으로 성격을 바꿔서 메인도 같이 늘어나게 해주자! */
+    display: inline-block;
+    background-color: pink;
+    /* 왜 굳이 패딩? .devider에 마진을 줘도 되구, 그냥 margin을 줘도 되는데? 왜냐면 ux(사용자의-)관점에서. 딱 그 글자를 클릭하지 않아도 그 근처를 선택하면 클릭이 될 수 있게끔~! */
+    padding: 5px 10px;
+    /*  소문자로 입력했던 english를 대문자로 바꿔서 렌더링을 해주기 위해... 아래와 같이! */
+    text-transform: uppercase;
+}
+.divider{
+    margin: 0 3px;
+}
+/* .member li::before{
+    content: ":";
+} */
 .visual{
-background-color: salmon;
-height: 10vh;
+    background-color: salmon;
+    height: 10vh;
 }
 .main{
-background-color: blue;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 30px;
-min-height: 450px;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px;
 }
 .group{
 height: 60vh;
