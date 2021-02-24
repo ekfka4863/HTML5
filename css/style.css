@@ -1,4 +1,5 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+@import url(./fontello.css);
 @import url(./normalize.css);
 
 /* 숨김 콘텐츠 */
@@ -61,7 +62,8 @@ a{
     background-color: #fff;
     /* border-top: 1px solid transparent; */
     position: relative;
-    padding: 0 30px 50px;
+    padding: 0 30px 35px;
+    border-radius: 0 0 15px 15px;
 }
 /* 로고 */
 .logo{
@@ -119,12 +121,15 @@ a{
     height: 47px;
     /* padding-left: 255px; */
 }
+.menu a{
+    outline: 0;
+}
 .menu-item{
     /* background-color: lightblue; */
     float: left;
     /* position: absolute; */
     border-left: 1px solid #fff;
-    line-height: 45px;
+    position: relative;
 }
 /* 동적 클래스 - 어떤 이벤트가 발생하였을 때 색깔이 바뀌려면 그 글꼴 색을 원래 먹였던 요소를 바꿔줄 것! */
 .menu-act .menu-item-button{
@@ -151,18 +156,54 @@ a{
     /* 원래 a 태그는 인라인 요소인데 이걸 성격을 블록으로 바꾸고 또 패딩도 넣어줌으로써 마우스를 호버했을 떄 바로 클릭할 수 있게끔 하는 영역을 더 크게 setting해준다. */
     display: block;
     padding: 2px 20px 0;
+    line-height: 45px;
 }
 .sub-menu{
-    background-color: pink;
     position: absolute;
     /* 일단 헷갈릴때 안보이게 해놓기! 임시 코드임! */
     display: none;
+    top: 47px;
+    white-space: nowrap;
+    /* width: max-content;  ---> 이건 그냥 내가 찾아낸거~ 위에 꺼는 강사님의 비법~!*/
 }
-.sub-menu1{
+.menu-act .sub-menu{
     display: block;
-    /* 탐과 레프트의 좌표를 0으로 만들어 주고... */
-    top: 0;
+}
+.sub-menu1, .sub-menu2, .sub-menu3{
+    display: none;
     left: 0;
+}
+.sub-menu4, .sub-menu5, .sub-menu6{
+    display: none;
+    right: 0;
+}
+.sub-menu li{
+    display: inline-block;
+}
+.sub-menu li{
+    display: inline-block;
+}
+.sub-menu a{
+    display: inline-block;
+    padding: 10px 0;
+    margin-right: 5px;
+}
+/* .sub-menu a::before{
+    content: '\f192'; 
+    font-family: 'fontello';
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+} */
+
+/* .sub-menu a:hover::before, .sub-menu a:focus::before{  --> 하지만 멀티 이벤트는 css가 처리하지 못해서 이거는 자바스크립트로 하는 것이 옳다!*/
+/*    content: '\e800';
+} */
+.sub-menu a:hover, .sub-menu a:focus{
+    color: #f00;
 }
 .visual{
     background-color: salmon;
