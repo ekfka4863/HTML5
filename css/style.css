@@ -205,9 +205,82 @@ a{
 .sub-menu a:hover, .sub-menu a:focus{
     color: #f00;
 }
+
+/* 비주얼 애니메이션 */
+@keyframes textAni{
+    from{
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0);
+        /* margin으로 하면 레이아웃도 같이 무너지는 것을 확인할 수 있다!  */
+        /* padding: 0; */
+        /* 두번째 방법 */
+        /* position: absolute; */
+        /* top: 0; */
+        /* left: 0; */
+        /* 세번째 방법 */
+        translate: (0, 0);
+    }
+    to{
+        font-size: 24px;
+        color: rgba(0, 0, 0, 1);
+        /* 두번째 방법 */
+        /* padding: 75px 0 0 400px; */
+        /* top: 75px; */
+        /* left: 400px; */
+        /* 세번째 방법 */
+        translate: (400px, 75px);
+    }
+}
+@keyframes bgAni{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
 .visual{
-    background-color: salmon;
-    height: 10vh;
+    /* background-color: salmon; */
+    height: 120px;
+    position: relative;
+}
+.visual::before, .visual::after{
+    /* 투명한 상자가 두개가 겹쳐있는 형태니까 아래와 같이 적어도 아무것도 안보이는게 정상! */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    animation-name: bgAni;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.visual::before{
+    /* 여러개의 배경이미지를 삽입할 수 있다! 콤마로 계속 add하기! 백그라운드 이미지랑 포지션으로 따로 해줘도 되구... 그냥 나란히 나열해도 되구,,,*/
+    background-image: url(./images/ani_flower_01.png), url(./images/ani_flower_02.png);
+    background-position: 0 -10px, 670px 0;
+}
+.visual::after{
+    /* background: url(./images/ani_flower_03.png) no-repeat 300px 0,
+    url(./images/ani_flower_04.png) no-repeat 800px 0; */
+    background-image: url(./images/ani_flower_03.png), url(./images/ani_flower_04.png);
+    background-position: 300px 0, 800px 0;
+    animation-delay: 1000ms;
+}
+.visual-text{
+    /* 폰트도 바꿔주는 센스! */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* 애니메이션은 아래와 같은 2가지의 속성이 무조건 필요! 애니메이션 이름이랑 2초간 동작하라는 듀레이션! */
+    animation-name: textAni;
+    animation-duration: 1000ms;
+    animation-fill-mode: forwards;
+    /* scroll이 가로로 생기는 것을 막기 위해...아래와 같이 해도됨! ^^  */
+    /* display: inline-block; */
+    position: absolute;
+    z-index: 10;
 }
 .main{
     background-color: blue;
