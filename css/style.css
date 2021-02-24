@@ -1,10 +1,33 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+@import url(./normalize.css);
+
+/* 숨김 콘텐츠 */
+.a11y-hidden{
+    background-color: yellow;
+    /* display: none; ---> 이렇게 접근도 못하게 보이지 않게 없애면 안됌!!! 이건 아예 존재하지 않는거! 그래서 숨김 콘텐츠를 만들때는 이렇게가 아니라 아래와 같이!*/
+    position: absolute;
+    /* 안녕히계세요! 저는 안드로메다로 갑니다!!! 존재는 하지만 눈에는 안보일거에요! */
+    top: -9999px;
+    /* width와 height의 값을 주기는 해서.. 기본적으로 블록을 만들어 놓고... */
+    width: 1px;
+    height: 1px;
+    /* 마진은 패딩과 다르게 음수값을 줄 수 있다는 것! */
+    margin: -1px; 
+    /* 음수값으로 마진을 준 것을 overflow를 사용해서 이 부분을 읽어준다... 즉, 이렇게 숨김 처림 된 이 부분을 스크린리더가 보여줄 때 갑자기 스크롤이 완전 위쪽으로 솓는 것을 방지하기 위해... 이렇게 해주는 것! */
+    overflow: hidden;
+    /* 트릭을 이용하는 것! cf. https://bennettfeely.com/clippy/   ---> 모든 좌표를 전부 0으로 잡아줘서...이런 특성을 이용하여서 좌표는 그곳에 있지만 우리 눈에는 안보이는 숨김 컨텐츠를 만들어 낸것~ */
+    clip-path: polygon(0 0, 0 0, 0 0);
+    /* 밑에있는 거는 앞으로의 버전에서는 사용하지 말라고는 하지만... 만약 하위 호환성을 보장하고 싶을때 위에 있는 코드랑 같이 사용함!  */
+    clip: rect(0 0 0 0);
+}
 html{
     font-size: 10px;
 }
 body{
-    margin: 0;
     background-color: #ccc;
     font-size: 1.2rem;
+    font-weight: 300;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 body *, body *::before, body *::after{
     box-sizing: border-box;
@@ -41,7 +64,7 @@ a{
 .member{
     margin: 0;
     list-style: none;
-    background-color: yellow;
+    /* background-color: yellow; */
     /* 기본 패딩 없애기... */
     padding-left: 0; 
     /* 인라인 블록으로 만든 멤버 클래스의 li를 right 정렬해주고 싶으면 그의 부모 요소에 text-align을 바꿔주는 것~! */
@@ -59,7 +82,7 @@ a{
 .member a{
     /* 원래 a는 inline 속성. 그래서 패딩을 위아래 줘도 메인이 같이 늘어나지 않는다. 그래서 블록으로 성격을 바꿔서 메인도 같이 늘어나게 해주자! */
     display: inline-block;
-    background-color: pink;
+    /* background-color: pink; */
     /* 왜 굳이 패딩? .devider에 마진을 줘도 되구, 그냥 margin을 줘도 되는데? 왜냐면 ux(사용자의-)관점에서. 딱 그 글자를 클릭하지 않아도 그 근처를 선택하면 클릭이 될 수 있게끔~! */
     padding: 5px 10px;
     /*  소문자로 입력했던 english를 대문자로 바꿔서 렌더링을 해주기 위해... 아래와 같이! */
