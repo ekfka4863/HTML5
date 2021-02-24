@@ -4,7 +4,7 @@
 
 /* 숨김 콘텐츠 */
 .a11y-hidden{
-    background-color: yellow;
+    background-color: red;
     /* display: none; ---> 이렇게 접근도 못하게 보이지 않게 없애면 안됌!!! 이건 아예 존재하지 않는거! 그래서 숨김 콘텐츠를 만들때는 이렇게가 아니라 아래와 같이!*/
     position: absolute;
     /* 안녕히계세요! 저는 안드로메다로 갑니다!!! 존재는 하지만 눈에는 안보일거에요! */
@@ -23,13 +23,8 @@
     clip: rect(0 0 0 0);
 }
 
-/* 스타일 초기화 - 아래와 같이... 자주 사용하게 될, 중복으로 사용하게 될 리셋 모듈을 내가 만들어 놓는 것! */
-/* .reset-list{
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-} */
-ul, ol{
+/* 스타일 초기화 - 아래와 같이... 자주 사용하게 될, 중복으로 사용하게 될 리셋 모듈을 내가 만들어 놓는 것! 적용하고 싶으면 적용을 원하는 html상의 태그로 가서 class에 적으면 됨!!!*/
+.reset-list{
     list-style: none;
     margin: 0;
     padding-left: 0;
@@ -57,6 +52,7 @@ a{
     width: 940px;
     margin: 0 auto;
 }
+
 /* 헤더 */
 .header{
     background-color: #fff;
@@ -79,13 +75,13 @@ a{
 .member{
     margin: 0;
     list-style: none;
-    /* background-color: yellow; */
     /* 기본 패딩 없애기... */
     padding-left: 0; 
     /* 인라인 블록으로 만든 멤버 클래스의 li를 right 정렬해주고 싶으면 그의 부모 요소에 text-align을 바꿔주는 것~! */
     text-align: right;
     /* li들 태그 사이에 공백문자로   */
     font-size: 0;
+    padding: 5px 0;
     position: relative;
     right: -10px;
 }
@@ -111,7 +107,7 @@ a{
 .menu{
     /* background: linear-gradient(to bottom, red, green); */
     /*  가능하다면 ce4827라는 배경색을 기본적으로 깔아서 ... Linear-gradient가 제대로 작동하지 않을 때 보여줄 배경색을 깔아논다! */
-    background: #ce4827 linear-gradient(to bottom, #eaac2e 0%,#ce4827 30%,#e64404 65%,#ce3700 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #ce4827 linear-gradient(to bottom, #eaac2e 0%,#ce4827 35%,#ce4827 70%,#eaac2e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     border-top: 2px solid #000;
     /* box-shadow: ; 로도 같은 것을 만들 수 있다고 함! 상자 사이즈에 영향을 주지도 않는다고 함! */
     /* box-shadow: 0 -2px 0 0 #000; */
@@ -119,17 +115,26 @@ a{
     /* /를 기준으로 앞에쪽이 x축이고 뒤쪽인 y축! 완만한 경사를 만들고 싶을 때 사용! */
     /* border-radius: 0 0 30px 30px / 0 0 5px 5px; */
     height: 47px;
-    /* padding-left: 255px; */
+    padding-left: 255px;
 }
 .menu a{
     outline: 0;
 }
 .menu-item{
-    /* background-color: lightblue; */
-    float: left;
-    /* position: absolute; */
-    border-left: 1px solid #fff;
     position: relative;
+    float: left;
+    border-left: 1px solid #fff;
+}
+.menu-item-button{
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    /* shadow는 두겹으로 준 것! 그렇게 윤곽을 만든 것! */
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+    /* 원래 a 태그는 인라인 요소인데 이걸 성격을 블록으로 바꾸고 또 패딩도 넣어줌으로써 마우스를 호버했을 떄 바로 클릭할 수 있게끔 하는 영역을 더 크게 setting해준다. */
+    display: block;
+    padding: 2px 20px 0;
+    line-height: 45px;
 }
 /* 동적 클래스 - 어떤 이벤트가 발생하였을 때 색깔이 바뀌려면 그 글꼴 색을 원래 먹였던 요소를 바꿔줄 것! */
 .menu-act .menu-item-button{
@@ -144,20 +149,9 @@ a{
     height: 2px;
     margin-top: -2px;
 }
-.menu-item:first-child{
+/* .menu-item:first-child{
     margin-left: 225px;
-}
-.menu-item-button{
-    color: #fff;
-    font-size: 1.6rem;
-    font-weight: 700;
-    /* shadow는 두겹으로 준 것! 그렇게 윤곽을 만든 것! */
-    text-shadow: 1px 1px 0 #000, -1px 1px 0 #000;
-    /* 원래 a 태그는 인라인 요소인데 이걸 성격을 블록으로 바꾸고 또 패딩도 넣어줌으로써 마우스를 호버했을 떄 바로 클릭할 수 있게끔 하는 영역을 더 크게 setting해준다. */
-    display: block;
-    padding: 2px 20px 0;
-    line-height: 45px;
-}
+} */
 .sub-menu{
     position: absolute;
     /* 일단 헷갈릴때 안보이게 해놓기! 임시 코드임! */
@@ -170,22 +164,19 @@ a{
     display: block;
 }
 .sub-menu1, .sub-menu2, .sub-menu3{
-    display: none;
+    /* display: none; */
     left: 0;
 }
 .sub-menu4, .sub-menu5, .sub-menu6{
-    display: none;
+    /* display: none; */
     right: 0;
-}
-.sub-menu li{
-    display: inline-block;
 }
 .sub-menu li{
     display: inline-block;
 }
 .sub-menu a{
     display: inline-block;
-    padding: 10px 0;
+    padding: 10px 0 8px;
     margin-right: 5px;
 }
 /* .sub-menu a::before{
@@ -218,7 +209,7 @@ a{
         /* top: 0; */
         /* left: 0; */
         /* 세번째 방법 */
-        translate: (0, 0);
+        transform: translate(0, 0);
     }
     to{
         font-size: 24px;
@@ -228,7 +219,7 @@ a{
         /* top: 75px; */
         /* left: 400px; */
         /* 세번째 방법 */
-        translate: (400px, 75px);
+        transform: translate(400px, 75px);
     }
 }
 @keyframes bgAni{
