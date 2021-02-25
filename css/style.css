@@ -3,12 +3,13 @@
 @import url(./normalize.css);
 
 /* 숨김 콘텐츠 */
-.a11y-hidden, legend{
+.a11y-hidden, legend, .readable-hidden{
     background-color: red;
     /* display: none; ---> 이렇게 접근도 못하게 보이지 않게 없애면 안됌!!! 이건 아예 존재하지 않는거! 그래서 숨김 콘텐츠를 만들때는 이렇게가 아니라 아래와 같이!*/
     position: absolute;
     /* 안녕히계세요! 저는 안드로메다로 갑니다!!! 존재는 하지만 눈에는 안보일거에요! */
-    top: -9999px;
+    /* top: -9999px; */
+    
     /* width와 height의 값을 주기는 해서.. 기본적으로 블록을 만들어 놓고... */
     width: 1px;
     height: 1px;
@@ -42,7 +43,6 @@ body{
     #ccc linear-gradient(180deg, #ccc 0%, #eee 30%, #fff 50%, #fff 100%);
     /* 또는 아래와 같이 마지막에 따로 개별속성으로 선언하는 전략도 있음! 현업에서는 아래와 같은 방법으로도~ */
     /* background-color: #ccc; */
-    background;
 }
 body *, body *::before, body *::after{
     box-sizing: border-box;
@@ -317,7 +317,6 @@ a{
 
 /* 로그인 */
 .login{
-    width: 250px;
     background: radial-gradient(circle at right top, #eaac2e, #ce4827);
     border-radius: 5px;
     box-shadow: 5px 5px 0 0 #aaa;
@@ -341,13 +340,20 @@ a{
     padding: 10px 10px 0 10px;
     margin-top: 10px;
 }
-.
 .login-form fieldset{
+    position: relative;
     margin: 0;
     padding: 0 0 10px 0;
     border: 0;
     border-bottom: 1px solid #aaa;
-    position: relative;
+}
+.user-pw{
+    /* background-color: lime; */
+    margin-top: 6px;
+}
+.login-form label{
+    display: inline-block;
+    width: 50px;
 }
 .login-form input{
     width: 90px;
@@ -367,14 +373,6 @@ a{
     height: 50px;
     border-radius: 5px;
 }
-.user-pw{
-    /* background-color: lime; */
-    margin-top: 6px;
-}
-.login-form label{
-    display: inline-block;
-    width: 50px;
-}
 .member-service{
     background: #fff;
     padding: 5px 10px;
@@ -391,6 +389,30 @@ a{
 }
 .member-service .icon-right-open{
     color: #ce4827;
+}
+
+/* 유효성 검사 배너 */
+.validation{
+    /* background-color: yellow; */
+    margin: 25px 0 0 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+.validation-list{
+    padding-left: 0;
+    list-style-type: none;
+}
+/* 리스트 말고, 클릭하는 영역을 커지게끔 하려면 a태그를 사용할 것! */
+/* 단, li말고 a는 어려움이 있음... li가 더 쉽다고 느낄수는 있음! 하지만 아래와 같이 할 것! block으로 주면 부모 상자 만큼의 영역을 차지...그래서 a의 영역이 커져서 조금 더 큰 영역에서 클릭할 수 있게된다. */
+.validation-list a{
+    display: block;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 7px 5px 5px 40px;
+    background: url(./images/validation_icon.png) no-repeat 15px 50%, 
+    linear-gradient(180deg, #ccc, #eee);
+    background-color: #ccc;
 }
 .slogan{
     background-color: lightgreen;
