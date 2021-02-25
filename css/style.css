@@ -414,6 +414,43 @@ a{
     linear-gradient(180deg, #ccc, #eee);
     background-color: #ccc;
 }
+
+/* 웹 관련 용어 */
+.term{
+    background: linear-gradient(180deg, #ccc, #eee);
+    background-color: #ccc;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 15px;
+}   
+.term-heading{
+    margin-top: 5px;
+}
+.term-list{
+
+}
+.term-list-subject{
+    float: right;
+    width: 150px;
+    /* display: inline; */
+    color: rgb(34, 93, 130);
+    font-weight: 500;
+    /* margin: 0 0 5px 5px; */
+}
+.term-list-thumbnail{
+    width: 70px;
+    margin: 0;
+    /* display: inline; */
+    float: left;
+    /* top: 20px; */
+}
+.term-list-brief{
+    float: none;
+    /* display: inline; */
+    margin: 0;
+}
+
+
 .slogan{
     background-color: lightgreen;
     height: 10vh;
