@@ -3,7 +3,7 @@
 @import url(./normalize.css);
 
 /* 숨김 콘텐츠 */
-.a11y-hidden{
+.a11y-hidden, legend{
     background-color: red;
     /* display: none; ---> 이렇게 접근도 못하게 보이지 않게 없애면 안됌!!! 이건 아예 존재하지 않는거! 그래서 숨김 콘텐츠를 만들때는 이렇게가 아니라 아래와 같이!*/
     position: absolute;
@@ -300,29 +300,107 @@ a{
     min-height: 400px;
 }
 /* .group{
-height: 60vh;
+    height: 60vh;
 } */
 .group1{
-/* background-color: violet; */
-width: 250px;
+    /* background-color: violet; */
+    width: 250px;
 }
 .group2{
-/* background-color: aqua; */
-width: 380px;
+    /* background-color: aqua; */
+    width: 380px;
 }
 .group3{
-/* background-color: sandybrown; */
-width: 190px;
+    /* background-color: sandybrown; */
+    width: 190px;
+}
+
+/* 로그인 */
+.login{
+    width: 250px;
+    background: radial-gradient(circle at right top, #eaac2e, #ce4827);
+    border-radius: 5px;
+    box-shadow: 5px 5px 0 0 #aaa;
+    padding: 10px;
+}
+.login-heading{
+    /* 아래와 같이 선택 자체가 잘 됐는지 확인할 것! */
+    /* background-color: yellow; */
+    margin: 0;
+    text-indent: 10px;
+    /* 위에 들여쓰기 (패딩과 마진과는 다르게 박스 크기에 영향을 주지 않는다는 장점!)코드는 아래 두개의 코드와 동일! */
+    /* padding-left: 10px; */
+    /* margin-left: 10px; */
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ff0;
+}
+.login-form{
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+    padding: 10px 10px 0 10px;
+    margin-top: 10px;
+}
+.
+.login-form fieldset{
+    margin: 0;
+    padding: 0 0 10px 0;
+    border: 0;
+    border-bottom: 1px solid #aaa;
+    position: relative;
+}
+.login-form input{
+    width: 90px;
+    height: 22px;
+    padding: 1px 1px 1px 5px;
+    border: 1px solid #aaa;
+}
+.btn-login{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ce4827;
+    padding: 0;
+    border: 0;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+.user-pw{
+    /* background-color: lime; */
+    margin-top: 6px;
+}
+.login-form label{
+    display: inline-block;
+    width: 50px;
+}
+.member-service{
+    background: #fff;
+    padding: 5px 10px;
+    margin: 0;
+    list-style-type: none;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.member-service a{
+    /* span태그와 나란히 한줄에 있고 싶으면 Inline-block을 사용! */
+    display: inline-block;
+    padding-left: 5px 0;
+}
+.member-service .icon-right-open{
+    color: #ce4827;
 }
 .slogan{
-background-color: lightgreen;
-height: 10vh;
+    background-color: lightgreen;
+    height: 10vh;
 }
 
 .footer{
-background-color: silver;
+    background-color: silver;
 }
 .footer-content{
-background-color: pink;
-height: 10vh;
+    background-color: pink;
+    height: 10vh;
 }
