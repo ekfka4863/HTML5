@@ -33,10 +33,15 @@ html{
     font-size: 10px;
 }
 body{
-    background-color: #ccc;
     font-size: 1.2rem;
     font-weight: 300;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    /* 바디에 그라디언트 */
+    background: url(./images/bg_flower.png) no-repeat 50% 0, 
+    /* 만약 백그라운드에 까는 이미지가 하나만 있었다면 url앞에 #ccc를 붙여도 되겠지만 이거는 멀티백그라운드이기 때문에... */
+    #ccc linear-gradient(180deg, #ccc 0%, #eee 30%, #fff 50%, #fff 100%);
+    /* 또는 아래와 같이 마지막에 따로 개별속성으로 선언하는 전략도 있음! 현업에서는 아래와 같은 방법으로도~ */
+    /* background-color: #ccc; */
 }
 body *, body *::before, body *::after{
     box-sizing: border-box;
@@ -65,7 +70,7 @@ a{
 .logo{
     margin: 0; 
     position: absolute;
-    top: 33px;
+    top: 41px;
     left: 65px;
     font-size: 1em;
     /* font-size: 100%;  위에꺼랑 같은 말! */
@@ -103,6 +108,17 @@ a{
     margin: 0 3px;
 }
 
+/* 이렇게 구체성을 무시하고 코드를 짠뒤에 고민하지 말고 ...  */
+/* .member li::before{
+    content: "|";
+} */
+/* .first::before{
+    content: ""  !important;
+} */
+/* 아래와 같이 할 것! */
+/* .member li:nth-child(n+2)::before{
+    content: "|";
+} */
 /* 메인 메뉴 */
 .menu{
     /* background: linear-gradient(to bottom, red, green); */
@@ -274,25 +290,27 @@ a{
     z-index: 10;
 }
 .main{
-    background-color: blue;
+    background-color: #fff;
+    border-radius: 15px 15px 0 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 30px;
+    min-height: 400px;
 }
-.group{
+/* .group{
 height: 60vh;
-}
+} */
 .group1{
-background-color: violet;
+/* background-color: violet; */
 width: 250px;
 }
 .group2{
-background-color: aqua;
+/* background-color: aqua; */
 width: 380px;
 }
 .group3{
-background-color: sandybrown;
+/* background-color: sandybrown; */
 width: 190px;
 }
 .slogan{
