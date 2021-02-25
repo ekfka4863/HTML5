@@ -42,6 +42,7 @@ body{
     #ccc linear-gradient(180deg, #ccc 0%, #eee 30%, #fff 50%, #fff 100%);
     /* 또는 아래와 같이 마지막에 따로 개별속성으로 선언하는 전략도 있음! 현업에서는 아래와 같은 방법으로도~ */
     /* background-color: #ccc; */
+    background;
 }
 body *, body *::before, body *::after{
     box-sizing: border-box;
@@ -72,8 +73,8 @@ a{
     position: absolute;
     top: 41px;
     left: 65px;
-    font-size: 1em;
-    /* font-size: 100%;  위에꺼랑 같은 말! */
+    /* font-size: 1em;  아래꺼랑 가은 말!*/
+    font-size: 100%; 
     line-height: 1;
 }
 /* 안내 링크 */
@@ -131,7 +132,7 @@ a{
     /* /를 기준으로 앞에쪽이 x축이고 뒤쪽인 y축! 완만한 경사를 만들고 싶을 때 사용! */
     /* border-radius: 0 0 30px 30px / 0 0 5px 5px; */
     height: 47px;
-    padding-left: 255px;
+    padding-left: 225px;
 }
 .menu a{
     outline: 0;
