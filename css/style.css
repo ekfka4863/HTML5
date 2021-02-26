@@ -488,6 +488,11 @@ a{
     float: right;
 }
 
+/* 자료 검색 창 */
+.search{
+    /* background-color: yellow; */
+}
+
 .slogan{
     background-color: lightgreen;
     height: 10vh;

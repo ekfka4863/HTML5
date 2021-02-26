@@ -203,6 +203,18 @@
             </section>
         </div>
         <div class="group group2">그룹2</div>
+            <section class="search">
+                <h2 class="a11y-hidden">검색</h2>
+                <form method="POST" action="https://formspree.io/seulbinim@gmail.com" class="search-form">
+                    <fieldset>
+                        <legend>검색폼</legend>
+                        <!-- label의 for는 input의 id와 연동이 되는 것! 그래서 '자료검색'을 누르면 인풋 상자로 이동하는 효과!-->
+                        <label for="search">자료검색</label>
+                        <input type="search" id="search" name="search" required placeholder="검색어를 입력하세요.">
+                        <button type="submit" class="btn-search">검색</button>
+                    </fieldset>
+                </form>
+            </section>
         <div class="group group3">그룹3</div>
     </main>
     <article class="slogan">슬로건</article>
