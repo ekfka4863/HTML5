@@ -488,11 +488,47 @@ a{
     float: right;
 }
 
-/* 자료 검색 창 */
-.search{
+/* 검색 폼 */
+.search-form{
+    background: #ccc linear-gradient(180deg, #ccc, #fff);
+    border: 1px solid #aaa;
+    /* 다른 여러가지의 방법! 아래와 같이! */
+    /* border-bottom: 0; */
+    /* border-bottom-color: transparent; ---> 이거가 아래 코드보다 더 안전! 왜냐면 내가 앞으로 배경을 뭐를 쓸지 모르니까!*/
+    border-bottom-color: #fff;
+    padding: 15px 25px 10px;
+    border-radius: 15px 15px 0 0;
+}
+.search-form fieldset{
     /* background-color: yellow; */
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.search-form .flexbox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-form input{
+    /* 인풋 상자의 크기를 조율해 줌으로써 배치가 더 내가 원하는 데로~ 파이어폭스 확인해 보기! */
+    width: 200px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 1px 1px 1px 5px;
+    height: 22px;
+}
+.btn-search{
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    background-color: #212121;
+    color: #fff;
+    padding: 3px 10px;
+    height: 22px;
+    font-size: 1.1rem;
 }
 
+/*슬로건 */
 .slogan{
     background-color: lightgreen;
     height: 10vh;
