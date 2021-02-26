@@ -416,40 +416,77 @@ a{
 }
 
 /* 웹 관련 용어 */
+/* .clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+} */
 .term{
-    background: linear-gradient(180deg, #ccc, #eee);
-    background-color: #ccc;
+    margin-top: 20px;
+    background: #ccc linear-gradient(180deg, #ccc, #eee);
+    /* background-color: #ccc; */
     border: 1px solid #aaa;
     border-radius: 5px;
     padding: 15px;
 }   
 .term-heading{
-    margin-top: 5px;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 .term-list{
-
+    margin: 10px 0 0 0;
+}
+.term-list > div::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.term-list-thumbnail, .term-list-brief{
+    margin-left: 0;
+}
+.term-list-subject, .term-list-brief{
+    /* background-color: pink; */
+    width: 145px;
 }
 .term-list-subject{
-    float: right;
-    width: 150px;
-    /* display: inline; */
-    color: rgb(34, 93, 130);
-    font-weight: 500;
-    /* margin: 0 0 5px 5px; */
-}
-.term-list-thumbnail{
-    width: 70px;
-    margin: 0;
-    /* display: inline; */
-    float: left;
-    /* top: 20px; */
+    color: #296897;
+    margin-top: -1px;
 }
 .term-list-brief{
-    float: none;
-    /* display: inline; */
-    margin: 0;
+    margin-top: 5px;
+    line-height: 1.5;
+    text-align: justify;
 }
-
+.term-list img{
+    /* 이미지가 imline요소기 때문에 베이스라인이 안맞기도... 그럴때 인라인 요소에 베이스라인을 맞추기 위해 사용할 수 있는 트릭이 아래와 같음! 단, 값은 Middle, top... 뭘 넣어도 상관 없음! */
+    vertical-align: middle;
+    /* 두번째 솔루션 --> 인라인 상자의 성격 자체를 블록으로 바꿜 줄 것! */
+    /* display: block; */
+    /* 단, 두번 째 솔루션의 문제는 레이아웃 자체가 블록 요소 하나가 생김으로써 무너질 위험도 있으니까... 이거는 조심! 경우에 따라 다른 방식을 사용할 것! */
+}
+.term-list-thumbnail{
+    /* background-color: lime; */
+}
+.term-list > div{    
+    /* background-color: salmon; */
+    margin-top: 10px;
+    /* overflow: hidden; */
+}
+.term-list div:nth-child(odd) .term-list-subject, 
+.term-list div:nth-child(odd) .term-list-brief{
+    float: right;
+}
+.term-list div:nth-child(odd) .term-list-thumbnail{
+    float: left;
+}
+.term-list div:nth-child(even) .term-list-subject, 
+.term-list div:nth-child(even) .term-list-brief{
+    float: left;
+}
+.term-list div:nth-child(even) .term-list-thumbnail{
+    float: right;
+}
 
 .slogan{
     background-color: lightgreen;
