@@ -528,6 +528,104 @@ a{
     font-size: 1.1rem;
 }
 
+/* 그룹 2 - 공지사항 및 자료실 */
+/* .board::after{
+    content: "";
+    display: block;
+    clear: both;
+} */
+.board{
+    background-color: lightcoral;
+    position: relative;
+    padding-top: 45px;
+    margin-top: 20px;
+}
+.notice-more, .pds-more{
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    background-color: yellow;
+    padding: 5px;
+    margin: 10px 0 5px 0;
+
+}
+/* 기본적으로 두 탭 전부 안보이는 상태로 설정을 먼저 해준다. tab-act일때 액티브하게 해줄 거기 때문! */
+.notice-list, .notice-more, .pds-list, .pds-more{
+    display: none;
+}
+.tab-act .notice-list, .tab .notice-more,
+.tab-act .pds-list, .tab-act .pds-more{
+    display: block;
+}
+.tab{
+    border: 1px solid #aaa;
+    border-radius: 5px 5px 0 0;
+    background: #ccc linear-gradient(180deg, #ccc, #eee);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #666;
+    padding: 10px 15px 8px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
+.tab-act .tab{
+    color: #ce4827;
+    background: #fff;
+    border-color: #ce4827 #ce4827 #fff #ce4827;
+}
+.notice-heading{
+    left: 0;
+}
+.pds-heading{
+    left: 76px;
+}
+.notice-list, .pds-list{
+    background-color: #296897;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.notice-list li, .pds-list li{
+    display: flex;
+    /* justify-content: space-between; */
+}
+.notice-list a, .pds-list a{
+    background-color: lightgreen;
+    /* space-between이랑 보기에는 같지만! 하지만 a 태그를 padding을 줘서 늘린것처럼 날짜와 li 사이에 space도 a태그 처리가 된다! */
+    /* flex-grow: 1;  */
+    /* 또 다른 기능 ...  */
+    /* 개행이 될 경우 white-space를 사용...아래의 2 속성과 꼭 세트로 같이 다닌다는 것 
+    꼭 기억! 넘치는 영역이 있을 때, 말 줄임표 ...을 생기게 하려면 ellipsis, white-space, overflow:hidden 사용! 
+    cf. https://velog.io/@susu1991/multiline-ellipsis */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 280px;
+}
+.
+
+/* .notice-heading, .pds-heading{
+    float: left;
+    margin: 10px 0 5px 0;
+}
+.notice-list, .pds-list{
+    clear: both;
+    background-color: pink;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.notice-list > li, .pds-list > li{
+    padding: 7px 0 0 0;
+}
+.notice-list > time, .pds-list > time{
+} */
+
+
+
 /*슬로건 */
 .slogan{
     background-color: lightgreen;
