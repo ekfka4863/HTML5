@@ -546,7 +546,7 @@ a{
     clear: both;
 } */
 .board{
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
     position: relative;
     padding-top: 45px;
     margin-top: 20px;
@@ -555,10 +555,9 @@ a{
     position: absolute;
     top: 0;
     right: 0;
-    float: right;
-    background-color: yellow;
-    padding: 5px;
-    margin: 10px 0 5px 0;
+    /* float: right; */
+    /* padding: 5px; */
+    /* margin: 10px 0 5px 0; */
 
 }
 /* 기본적으로 두 탭 전부 안보이는 상태로 설정을 먼저 해준다. tab-act일때 액티브하게 해줄 거기 때문! */
@@ -594,7 +593,7 @@ a{
     left: 76px;
 }
 .notice-list, .pds-list{
-    background-color: #296897;
+    /* background-color: #296897; */
     list-style-type: none;
     padding-left: 0;
     margin: 0;
@@ -604,7 +603,7 @@ a{
     /* justify-content: space-between; */
 }
 .notice-list a, .pds-list a{
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
     /* space-between이랑 보기에는 같지만! 하지만 a 태그를 padding을 줘서 늘린것처럼 날짜와 li 사이에 space도 a태그 처리가 된다! */
     /* flex-grow: 1;  */
     /* 또 다른 기능 ...  */
@@ -705,11 +704,6 @@ a{
 .point-color{
     color: #ce4827;
 }
-.event-heading, .related-heading{
-    font-size: 1.5rem;
-    margin: 0 0 15px 0;
-    padding-top: 5px;
-}
 .drop-shadow{
     /* display를 inline-block으로 해줘야지 그림자가 의도한대로 나옴! */
     display: inline-block;
@@ -721,22 +715,31 @@ a{
     border-bottom: 1px solid #aaa;
 }
 .event img{
+    /* 이미지에 붙어있는 불필요한 공간들을 없애주는 역할! */
     vertical-align: top;
 }
+.event-heading, .related-heading{
+    font-size: 1.5rem;
+    margin: 0 0 15px 0;
+    padding-top: 5px;
+}
 .event-brief{
-text-align: center;
+    text-align: center;
+    margin: 10px 0;
+    line-height: 1.5;
 }
 .event-brief em{
     /* 기울린 것 다시 정상적으로 보이게... */
     font-style: normal;
     /* 선착~ 부터는 줄바꿈 할 수 있게...inline요소인 em을 block으로 성격을 바꾸기! */
     display: block;
-    margin: 10px 0;
-    line-height: 1.5;
 }
 .btn-event{
     height: 18px;
     overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .btn-event button{
     width: 19px;
