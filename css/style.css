@@ -765,8 +765,67 @@ a{
     background-position: -35px 0 !important;
 }
 .related{
-    background-color: pink;
+    padding-top: 10px;
 }
+.related-list{
+    background-color: #fff;
+    height: 27px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+    /* 높이도 패딩도(원래 패딩은 듀레이션에 포함 안되는 영역!) 트렌지션의 효과에 넣어줘! 이런 의미! */
+    /* transition-property: height, padding, background-color; */
+    transition-property: all;
+    /* 보통 트렌지션 듀레이션 타임은 0.4초, 빠르면 0.2초, 느리다 싶으면 0.6초 ~ */
+    transition-duration: 0.4s, .2s, .6s;
+    /* transition-duration: 2000ms --> 높이 , 500ms --> 패딩; */
+    /* 여기서 높이나 패딩을 먼저 다 늘린다음에 그다음에 다른 요소가 늘어나게끔 하려면 아래와 같은 트릭을 사용! 
+    즉, 아래와 같이 적으면 height는 1s 있다가 작동을 시작해서 2초에 거쳐서 높이가 늘어나게 된다!*/
+    /* 아래에 0에 s 라는 단위 붙이는 것 잊어버리지 말기! 꼭!  */
+    -o-transition-delay: 0s, 2s, 3s;
+}
+/* ul요소에 :hover를 주는 것! a 요소가 아니라! */
+.related-list:hover{
+    height: 147px;
+    padding: 10px 0;
+    background-color: #fff;
+}
+/* li나 ul을 건드려도 되겠지만 a요소를 블록으로 바꾸면 부모요소인 li를 꽉 채우면서 클릭할 수 있는 면적도 더 커진다는 장점!
+단, 그렇게 되면 만약 text-align을 센터로 딱 주고 싶으면... line-height또는 부모요소에 flex를 줘도 됨!  */
+.related-list a{
+    display: block;
+    line-height: 25px;
+    text-indent: 2em;
+    /* a 요소에 둥근 모서리 효과를 주면 밑에 a요소가 포커스를 받았을 때 둥근모서리의 아웃라인이 잡히는 효과가 난다! 
+    이런 방법 말고도 박스 사이즈에는 영향을 안주는 요소인 box-shadow: ;를 사용할 수 있다!  */
+    border-radius: 5px;
+}
+.related-list a:focus{
+    outline: 1px solid darkblue;
+    /* 안쪽으로 아웃라인인 들어와서 아웃라인을 잡아라~ 이런의미! */
+    outline-offset: -2px;
+}
+
+
+/* animation말고 transition을 활용! 이것은 animation보다는 조금 더 디테일함이 떨어지긴 하지만 (내가 맘대로 할 수는 없으니까 ~)
+하지만 이것은 상태를 변경하는 것을 보여줄 때 용이하다! 
+transition을 사용할 때 유의할 점 --> 동적인 클래스가 생기면 그때 그것(e.g. :hover)이 트리거 역할이 되면서 애니메이션이나 transition이 실행된다는 점!*/
+/* 관련 사이트 리스트 애니메이션 */
+/* @keyframes showListAni{
+    from{
+        padding: 5px 10px;
+    }
+    to{
+        padding-top: 10px 10px;
+        height: 145px;
+        
+    } */
+    
+
+
 
 
 
