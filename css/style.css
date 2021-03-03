@@ -718,7 +718,7 @@ a{
     /* 이미지에 붙어있는 불필요한 공간들을 없애주는 역할! */
     vertical-align: top;
 }
-.event-heading, .related-heading{
+.event-heading, .related-heading, .favorite-heading{
     font-size: 1.5rem;
     margin: 0 0 15px 0;
     padding-top: 5px;
@@ -779,19 +779,20 @@ a{
     /* 높이도 패딩도(원래 패딩은 듀레이션에 포함 안되는 영역!) 트렌지션의 효과에 넣어줘! 이런 의미! */
     /* transition-property: height, padding, background-color; */
     transition-property: all;
+    transition-duration: 0.4s;
     /* 보통 트렌지션 듀레이션 타임은 0.4초, 빠르면 0.2초, 느리다 싶으면 0.6초 ~ */
-    transition-duration: 0.4s, .2s, .6s;
+    /* transition-duration: 0.4s, .2s, .6s; */
     /* transition-duration: 2000ms --> 높이 , 500ms --> 패딩; */
     /* 여기서 높이나 패딩을 먼저 다 늘린다음에 그다음에 다른 요소가 늘어나게끔 하려면 아래와 같은 트릭을 사용! 
     즉, 아래와 같이 적으면 height는 1s 있다가 작동을 시작해서 2초에 거쳐서 높이가 늘어나게 된다!*/
     /* 아래에 0에 s 라는 단위 붙이는 것 잊어버리지 말기! 꼭!  */
-    -o-transition-delay: 0s, 2s, 3s;
+    /* -o-transition-delay: 0s, 2s, 3s; */
 }
 /* ul요소에 :hover를 주는 것! a 요소가 아니라! */
-.related-list:hover{
+.related-list:hover, .related-list:focus{
     height: 147px;
     padding: 10px 0;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 /* li나 ul을 건드려도 되겠지만 a요소를 블록으로 바꾸면 부모요소인 li를 꽉 채우면서 클릭할 수 있는 면적도 더 커진다는 장점!
 단, 그렇게 되면 만약 text-align을 센터로 딱 주고 싶으면... line-height또는 부모요소에 flex를 줘도 됨!  */
@@ -810,20 +811,123 @@ a{
 }
 
 
-/* animation말고 transition을 활용! 이것은 animation보다는 조금 더 디테일함이 떨어지긴 하지만 (내가 맘대로 할 수는 없으니까 ~)
-하지만 이것은 상태를 변경하는 것을 보여줄 때 용이하다! 
-transition을 사용할 때 유의할 점 --> 동적인 클래스가 생기면 그때 그것(e.g. :hover)이 트리거 역할이 되면서 애니메이션이나 transition이 실행된다는 점!*/
-/* 관련 사이트 리스트 애니메이션 */
-/* @keyframes showListAni{
-    from{
-        padding: 5px 10px;
-    }
-    to{
-        padding-top: 10px 10px;
-        height: 145px;
-        
-    } */
+
+/* 인기 사이트 목록 */
+.favorite{
+    margin-top: 20px;
+    position: relative;
+    padding-top: 15px;
+}
+.favorite-list{
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+/* .no1::before{
+    content: "1";
+    background-color: #aaa;
+    padding: 0 5px;
+    margin-right: 2px;
+    border: 1px solid rgb(165, 158, 158);
+    border-radius: 3px;
+    color: #fff;
+}
+.no2::before{
+    content: "2";
+    background-color: #aaa;
+    padding: 0 3px;
+    margin-right: 2px;
+    border: 1px solid rgb(165, 158, 158);
+    border-radius: 3px;
+    color: #fff;
+}
+.no3::before{
+    content: "3";
+    background-color: #aaa;
+    padding: 0 3px;
+    margin-right: 2px;
+
+    border: 1px solid rgb(165, 158, 158);
+    border-radius: 3px;
+    color: #fff;
+
+}
+.no4::before{
+    content: "4";
+    background-color: #aaa;
+    padding: 0 3px;
+    margin-right: 2px;
+
+    border: 1px solid rgb(165, 158, 158);
+    border-radius: 3px;
+    color: #fff; 
+}*/
+/* 이런 반복은 그만!! */
+.favorite-list li{
+    /* background-color: pink; */
+    counter-increment: number;
+    margin-top: 5px;
+    /* 부모 상자를 플렉스로 만들어주면 아래 비포상자는 더이상 인라인이 이니다... 플렉스의 아이템 상자로써의 성격을 갖는다! */
+    display: flex;
+    align-items: center;
     
+}
+.favorite-list a{
+    flex-grow: 1;
+    /* background-color: aqua; */
+    /* font-weight: 400; */
+}
+/* .favorite-list em{    ----> 으로 하면 나중에 구체성 문제가 생길 수 도 있음!!! 그래서 아래와 같이!
+    width: 9px;
+    height: 11px;
+    overflow: hidden;
+    text-indent: 9px;
+    white-space: nowrap;
+    background-image: url(./images/rank.png);
+} */
+.favorite-list .up,
+.favorite-list .stop,
+.favorite-list .down{
+    font-style: normal;
+    /* background-color: lime; */
+    width: 9px;
+    height: 11px;
+    text-indent: 9px;
+    overflow: hidden;
+    white-space: nowrap;
+    background-image: url(./images/rank.png);
+    background-repeat: no-repeat;
+}
+.favorite-list .stop{
+    /* 상자의 y축의 중간의 이미지를 보여줘! 이런 의미! */
+    background-position: 0 50%;
+}
+.favorite-list .down{
+    /* 상자의 바텀영역을 매칭 시키는 것! */
+    background-position: 0 100%;
+}
+.favorite-list li::before{
+    /* 아라비안 숫자 말고 알파벳도 가능! */
+    content: counter(number);
+    color: #fff;
+    background-color: #aaa;
+    border-radius: 3px;
+    /* ::before는 인라인 상자! 그래서 가로와 세로를 넣어주려면... 
+    인라인 블록으로 바꿔주고 패딩과 마진을 넣어준다! */
+    display: inline-block;
+    padding: 2px 5px;
+    margin: 5px;
+}
+
+.favorite-more{
+    position: absolute;
+    top: 9px;
+    right: 2px;
+    padding: 8px;
+}
+.favorite-more::before{
+    color: hsla(110, 30%, 50%, 1))
+}
 
 
 
